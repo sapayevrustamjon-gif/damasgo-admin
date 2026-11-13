@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="theme-color" content="#FFC20E">
+<title>DamasGo</title>
+  <script type="module" crossorigin src="./assets/index-g8YaGuDo.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-7E6T3MVE.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs>
+  <filter id="shB1" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="22"/></filter>
+  <filter id="shB2" x="-50%" y="-100%" width="200%" height="300%"><feGaussianBlur stdDeviation="7"/></filter>
+</defs></svg>
+
+<div class="phone" id="phone">
+  <!-- Yuklanish -->
+  <section class="screen on" id="boot">
+    <div class="intro">
+      <div class="iwm"><div class="wm"><span class="a">Damas</span>Go</div><div class="isub" id="introSub"></div></div>
+      <div class="iroad"><i></i></div>
+      <div class="ispeed"><i></i><i></i><i></i><i></i></div>
+      <div class="icar" id="introCar"></div>
+      <div class="idust"><i></i><i></i><i></i></div>
+    </div>
+  </section>
+
+  <!-- Kirish -->
+  <section class="screen" id="login">
+    <button class="langpill" id="langPill"></button>
+    <div class="in">
+      <div class="wm"><span class="a">Damas</span>Go<small class="wsub" id="loginSub"></small></div>
+      <h1 id="loginTitle">Damasingizni toping va yo'lga chiqing</h1>
+      <div class="tg" id="loginText">Qaysi damas qayerda, nechta joy bo'sh va qachon yetib keladi — bir qarashda.</div>
+    </div>
+    <div class="car" id="loginCar"></div>
+    <div class="bot">
+      <button class="b2 k" id="gBtn"><span class="lead"><span class="gG">G</span></span><span class="t">Google orqali kirish</span><span class="ar" data-i="arrow"></span></button>
+      <div class="legal">Kirish orqali foydalanish shartlariga rozilik bildirasiz</div>
+    </div>
+  </section>
+
+  <!-- Ro'yxatdan o'tish / profilni tahrirlash -->
+  <section class="screen" id="setup">
+    <div class="hdr"><button class="circ" id="setupBack" data-i="back"></button><b id="setupTitle">Ro'yxatdan o'tish</b><span style="width:48px"></span></div>
+    <div class="vs" style="padding-bottom:20px">
+      <div class="okchip"><span data-i="check" style="width:20px;height:20px;display:inline-grid"></span><span id="gEmail">Google hisobi ulandi</span></div>
+      <div id="rolesBlock"><div class="label">Siz kimsiz?</div>
+      <div class="roles">
+        <button class="role on" data-role="client"><div class="ic" data-i="user"></div><b>Yo'lovchi</b><small>Damas kutaman</small></button>
+        <button class="role" data-role="driver"><div class="ic" data-i="van"></div><b>Damaschi</b><small>Damas haydayman</small></button>
+      </div></div>
+      <div class="label">Ismingiz</div>
+      <input class="field" id="fName" placeholder="Masalan: Rustam" maxlength="24" autocomplete="name">
+      <div class="label">Telefon raqam</div>
+      <div class="phonef"><span>+998</span><input id="fPhone" inputmode="numeric" placeholder="90 123 45 67" autocomplete="tel"></div>
+      <div class="hint" id="phoneHint"></div>
+      <div id="driverFields" class="hide">
+        <div class="label">Liniya raqami</div>
+        <div class="routes" id="routeSeg"></div>
+        <div class="label">Davlat raqami</div>
+        <input class="field" id="fPlate" placeholder="40 A 123 BC" maxlength="11" style="text-transform:uppercase;letter-spacing:.04em" autocomplete="off">
+        <div class="preview"><small>Damasingiz ilovada shunday ko'rinadi</small><div id="platePreview"></div></div>
+      </div>
+    </div>
+    <div class="foot"><button class="b2 k" id="setupBtn" disabled>Saqlash<span class="ar" data-i="arrow"></span></button></div>
+  </section>
+
+  <!-- Tekshiruv -->
+  <section class="screen" id="pending">
+    <div class="center">
+      <div class="stage" id="pendCar"></div>
+      <span class="ptag" id="pendTag"></span>
+      <h2 id="pendTitle"></h2>
+      <p id="pendText"></p>
+    </div>
+    <div class="foot" id="pendFoot"></div>
+  </section>
+
+  <!-- Yo'lovchi -->
+  <section class="screen" id="client">
+    <div class="view" id="c-map" style="position:relative;flex:1">
+      <div class="mapwrap" id="cMap"></div>
+      <div class="mtop">
+        <div class="topbar"><div class="av" id="cAv"></div><div class="loc" id="cLoc"></div><button class="circ" id="cBell" data-i="bell"></button></div>
+        <div class="chips" id="cChips"></div>
+      </div>
+      <button class="locfab" id="cLocate" data-i="locate"></button>
+      <div class="mcards" id="cCards"></div>
+      <button class="callTaxi" id="callTaxi"><span class="ct-ic" data-i="van"></span><span class="ct-t"><b>Taksi chaqirish</b><small>yoki yuk yetkazib berish</small></span><span class="ct-ar" data-i="arrow"></span></button>
+      <div class="osheet" id="oSheet"></div>
+    </div>
+    <div class="view vs hide" id="c-pitak"></div>
+    <div class="view vs hide" id="c-prof"></div>
+    <nav class="fnav" id="cNav">
+      <button class="on" data-v="c-map" data-i="map"></button>
+      <button data-v="c-pitak" data-i="queue"></button>
+      <button data-v="c-prof" data-i="user"></button>
+    </nav>
+  </section>
+
+  <!-- Xaritadan joy tanlash -->
+  <section class="screen" id="picker" style="z-index:17">
+    <div class="mapwrap" id="pkMap"></div>
+    <div class="pkpin"><div></div></div>
+    <div class="pktop"><button class="circ" id="pkBack" data-i="back"></button><div class="pkt" id="pkTitle">Qayerdan?</div><button class="circ" id="pkMe" data-i="locate"></button></div>
+    <div class="pkbot"><small>Xaritani surib, pinni kerakli joyga qo'ying</small><b id="pkAddr">—</b>
+      <button class="b2 y" id="pkOk" style="margin-top:12px"><span class="lead" data-i="mappin"></span>Shu joyni tanlash<span class="ar" data-i="check"></span></button></div>
+  </section>
+
+  <!-- Damas tafsiloti -->
+  <section class="screen" id="detail" style="z-index:15">
+    <div class="hdr"><button class="circ" id="detBack" data-i="back"></button><b>Damas ma'lumotlari</b><span style="width:48px"></span></div>
+    <div class="stage" id="detCar" style="padding-top:6px"></div>
+    <div class="panel" id="detPanel"></div>
+    <div class="blackbar">
+      <div class="r"><span>Yo'l haqi</span><b id="detFare"></b></div>
+      <button class="b2 y" id="detTrack"><span class="lead" data-i="mappin"></span>Xaritada ko'rsatish<span class="ar" data-i="arrow"></span></button>
+    </div>
+  </section>
+
+  <!-- Damaschi -->
+  <section class="screen" id="driver">
+    <div class="view vs" id="d-home"></div>
+    <div class="view vs hide" id="d-orders"></div>
+    <div class="view vs hide" id="d-prof"></div>
+    <div class="dpop" id="dPop"></div>
+    <nav class="fnav" id="dNav">
+      <button class="on" data-v="d-home" data-i="home"></button>
+      <button data-v="d-orders"><span data-i="list" style="display:grid"></span><span class="badge hide" id="dBadge">1</span></button>
+      <button data-v="d-prof" data-i="user"></button>
+    </nav>
+  </section>
+
+  <!-- Damaschi navigatori -->
+  <section class="screen" id="nav" style="z-index:18">
+    <div class="mapwrap" id="navMap"></div>
+    <div class="navstreet" id="navStreet">—</div>
+    <div class="navtop"><div class="navic" id="navIc"></div><div class="navtx"><b id="navDist">—</b><span id="navText">Yo'l hisoblanmoqda…</span></div><div class="navnext" id="navNext"></div><div class="navprog"><i id="navProg"></i></div></div>
+    <div class="navbtns"><button class="circ" id="navMin" data-i="back"></button><button class="circ compass" id="navCompass" title="Kompas"></button><button class="circ" id="navMute"></button><button class="circ" id="navCenter" data-i="locate"></button></div>
+    <div class="navbot" id="navBot"></div>
+  </section>
+
+  <!-- Admin -->
+  <section class="screen" id="admin" style="z-index:16">
+    <div class="hdr"><button class="circ" id="admBack" data-i="back"></button><b>Admin panel</b><span style="width:48px"></span></div>
+    <div class="admtabs" id="admTabs"></div>
+    <div class="vs" id="admBody" style="padding-bottom:30px"></div>
+  </section>
+
+  <!-- Tangalar va sovg'alar -->
+  <section class="screen" id="gifts" style="z-index:17">
+    <div class="hdr"><button class="circ" id="giftsBack" data-i="back"></button><b>Tangalar va sovg'alar</b><span style="width:48px"></span></div>
+    <div class="vs" id="giftsBody" style="padding-bottom:30px"></div>
+  </section>
+
+  <!-- Chat -->
+  <section class="screen" id="chat" style="z-index:19">
+    <div class="chathead"><button class="circ" id="chatBack" data-i="back"></button><div class="chatwho" id="chatWho"></div></div>
+    <div class="chatlist" id="chatList"></div>
+    <div class="chatquick" id="chatQuick"></div>
+    <div class="chatbar"><input id="chatIn" placeholder="Xabar yozing…" maxlength="500" autocomplete="off"><button id="chatSend" aria-label="Yuborish"><svg viewBox="0 0 24 24"><path d="M3 11.5 21 3l-6.5 18-3-7.5z" fill="currentColor"/></svg></button></div>
+  </section>
+
+  <!-- Buyurtmalar tarixi -->
+  <section class="screen" id="hist" style="z-index:17">
+    <div class="hdr"><button class="circ" id="histBack" data-i="back"></button><b>Buyurtmalar tarixi</b><span style="width:48px"></span></div>
+    <div class="vs" id="histBody" style="padding-bottom:30px"></div>
+  </section>
+
+  <div class="toast" id="toast"></div>
+</div>
+</body>
+</html>
